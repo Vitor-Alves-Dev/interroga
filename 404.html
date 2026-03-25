@@ -20,9 +20,13 @@
 <body>
     <h1>Essa não desbloqueia a próxima fase 👀<br>
       Tente observar melhor as pistas...</h1>
-      <button onclick="history.back()">Tentar novamente</button>
+      <button onclick="voltar()">Tentar novamente</button>
 
-
+<script>
+    function voltar() {
+     window.location.href = document.referrer
+}
+</script>
       
 </body>
 </html>
