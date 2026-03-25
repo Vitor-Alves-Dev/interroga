@@ -17,6 +17,18 @@
         text-align: Center;
         
     }
+    input {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        border-radius: 20px;
+        width: 200px;
+        height: 30px;
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 30px;
+    }
     p {
         margin: 0 auto;
         display: flex;
@@ -32,6 +44,9 @@
         display: flex;
         border: 2px solid rgb(178, 107, 107);
         border-radius: 13px;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
        
     }
     button:hover{
@@ -53,26 +68,70 @@
     .nome {
         color: blue;
     }
+    #conteudo {
+        margin-top: 15% ;
+    }
+
+    .botao2 {
+        width: 150px;
+        height: 50px;
+        background-color: rgb(83, 3, 3);
+        color: white;
+        cursor: pointer;
+        margin: 0 auto;
+        display: flex;
+        border: 2px solid rgb(178, 107, 107);
+        border-radius: 13px;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+    }
     
 </style>
 <body>
     
-   
-   <script>
-   var nome = window.prompt('Para começarmos... qual o seu nome ou apelido?')
-   
-   while(nome == ''){
-     nome =  window.prompt('Vamos tentar de novo... qual o seu nome ou apelido?')
-   }
-   if(nome == null){
-    nome = 'Zé da manga'
-   }
-    
-   document.write(`<h1>Seja bem vindo(a) ao Interroga,<b class= 'nome'> ${nome}</b>! Aqui é onde tudo começa!<br><br><br> Primeiro, vamos as instruções!<br><br> Ao total serão<strong class="vermelho"> 10 </strong> fases, cada fase terá um enigma a ser decifrado, e a resposta será apenas uma palavra!
-    <br><br> Quando descobrir a palavra certa basta coloca-la na url do site, vamos a um exemplo?`)
-    document.write(`<br><br><br><a href="exemplo.html"><button><p>VAMOS LA!</p></button></a></h1><br><br>`)
-    
-   
+<div id="conteudo">
+  <h1>Para começarmos...poderia me dizer seu nome?</h1>
+  <input type="text" id="inputNome" />
+  <button onclick="iniciar()">==></button>
+</div>
+
+<script>
+  function iniciar() {
+  let nome = document.getElementById("inputNome").value
+
+  if (!nome) nome = "Zé da manga"
+
+  document.getElementById("conteudo").innerHTML = `
+    <h1>
+      Seja bem vindo(a) ao Interroga,
+      <b class="nome">${nome}</b>!
+      <br><br><br>
+
+      Primeiro, vamos às instruções!
+      <br><br>
+
+      Ao total serão <strong class="vermelho">10</strong> fases,
+      cada fase terá um enigma a ser decifrado, e a resposta será apenas uma palavra!
+
+      <br><br>
+
+      Quando descobrir a palavra certa basta colocá-la na URL do site.
+      Vamos a um exemplo?
+      <br><br><br>
+
+      <a href="exemplo.html">
+        <button class='botao2'>VAMOS LÁ!</button>
+      </a>
+    </h1>
+  `
+}
+
+  const conteudo = document.getElementById('conteudo')
+
+  
+  
+</script>
    
 
 
