@@ -1,7 +1,6 @@
-
 {
-  "rewrites": [
-    { "source": "/([^.]*)", "destination": "/desafios/$1.html" }
-    
+  "routes": [
+    { "src": "^/([^.]*)$", "dest": "/desafios/$1.html" },
+    { "src": ".*", "dest": "/404.html" }
   ]
 }
