@@ -15,9 +15,30 @@
             color: white;
             font-style: italic
         }
+        button {
+            width: 150px;
+        height: 50px;
+        background-color: rgb(83, 3, 3);
+        color: white;
+        cursor: pointer;
+        margin: 0 auto;
+        display: flex;
+        border: 2px solid rgb(178, 107, 107);
+        border-radius: 13px;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <h1>Sim, é um código morse, por que não tenta traduzi-lo?</h1>
-</body>
-</html>
+      <button onclick="voltar()">Tentar Novamente</button>
+
+<script>
+    function voltar() {
+    window.history.back();
+  }
+
+</script>
