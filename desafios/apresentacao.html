@@ -108,6 +108,7 @@
   let nome = document.getElementById("inputNome").value
 
   if (!nome) nome = alert('Digite algum nome!')
+  else{
 
   document.getElementById("conteudo").innerHTML = `
     <h1>
@@ -132,6 +133,7 @@
       </a>
     </h1>
   `
+  }
 }
 
   const conteudo = document.getElementById('conteudo')
