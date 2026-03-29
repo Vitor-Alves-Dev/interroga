@@ -9,50 +9,94 @@
         body{
             background-color: black;
         }
-        button{
-            color: black;
-            background-color: black;
-            border: none;
-            width: 50px;
-            height: 50px;
-        }
-        .button2{
-            color: black;
-            background-color: black;
-            border: none;
-            width: 50px;
-            height: 50px;
-        }
-        h1{
-            color: rgb(27, 26, 26);
-            text-align: center;
-            margin-top: 5%;
-        }
-        .button2:hover{
-            background-color: yellow;
-            border-radius: 100%;
-        }
-        button:hover{
-            background-color: blue;
-            border-radius: 100%;
-        }
-        h2{
-            color: black;
-            font-size: 3em;
-            width: 30px;
-        }
-        h2:hover{
-            color: white;
-        }
+
+
+#bola {
+  width: 100px;
+  height: 100px;
+  background: blue;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+
+  opacity: 0.03; 
+  transition: 0.2s;
+}
+#bola:hover {
+  opacity: 1;
+}
+h1 {
+    color:rgba(255, 255, 255, 0.884) ;
+    opacity: 0.2;
+    text-align: center;
+    margin-top: 20%;
+}
+#mensagem {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: black;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 20px;
+}
     </style>
 </head>
 <body>
-    <button></button>
-    <h2>+</h2>
-    <button class="button2"></button>
+    <h1>Quem procura, acha.</h1>
+      <p id="mensagem" style="display: none;">
+         “Quem tudo quer, tudo ____”
+      </p>
+  <div id="area">
+  <div id="bola"></div>
+</div>
 </body>
 <script>
+    
+const bola = document.getElementById('bola');
+const resposta = document.getElementById('resposta');
 
- document.write('<h1>Quem procura, acha.</h1>')
+const posicoes = [
+  { x: 100, y: 100 },
+  { x: 300, y: 200 },
+  { x: 1500, y: 500},
+  { x: 200, y: 400 },
+  { x: 1750, y: 100 }
+];
+
+let etapa = 0;
+
+// posiciona a bolinha
+function irParaPosicao() {
+  bola.style.left = posicoes[etapa].x + 'px';
+  bola.style.top = posicoes[etapa].y + 'px';
+}
+
+// 👇 MOSTRA A PRIMEIRA VEZ
+irParaPosicao();
+bola.style.display = 'block';
+
+// clique
+bola.addEventListener('click', () => {
+  etapa++;
+
+  const mensagem = document.getElementById('mensagem');
+
+    if (etapa === posicoes.length) {
+        bola.style.opacity = '0';
+        mensagem.style.display = 'block';
+    } else {
+        bola.style.display = 'none';
+
+    setTimeout(() => {
+      irParaPosicao();
+      bola.style.display = 'block'; // 👈 reaparece já na nova posição
+    }, 300);
+  }
+});
+
+ 
 </script>
 </html>
